@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VugenScriptMetadata>
+  <ScriptName>DotNetProjectSample</ScriptName>
+  <Protocol>.NET</Protocol>
+  <ActionFiles>
+    <FileEntry Name="vuser_init.cs" Filter="2" />
+    <FileEntry Name="Action.cs" Filter="2" />
+    <FileEntry Name="vuser_end.cs" Filter="2" />
+  </ActionFiles>
+  <GeneralFiles>
+    <FileEntry Name="DotNetProjectSample.usr" Filter="4" />
+    <FileEntry Name="default.cfg" Filter="4" />
+    <FileEntry Name="default.usp" Filter="4" />
+    <FileEntry Name="AssemblyInfo.cs" Filter="2" />
+    <FileEntry Name="globals.cs" Filter="2" />
+    <FileEntry Name="globalsFixed.cs" Filter="2" />
+    <FileEntry Name="Script.csproj" Filter="2" />
+    <FileEntry Name="Script.csproj.user" Filter="2" />
+    <FileEntry Name="Script.props.user" Filter="2" />
+    <FileEntry Name="Script.sln" Filter="2" />
+    <FileEntry Name="ScriptUploadMetadata.xml" Filter="2" />
+    <FileEntry Name="bin\" Filter="2" />
+    <FileEntry Name="Action.c" Filter="1" />
+    <FileEntry Name="App.config" Filter="1" />
+    <FileEntry Name="Bookmarks.xml" Filter="1" />
+    <FileEntry Name="Breakpoints.xml" Filter="1" />
+    <FileEntry Name="CompilerLogMetadata.xml" Filter="1" />
+    <FileEntry Name="DotNetProjectSample.sdf" Filter="1" />
+    <FileEntry Name="mdrv.log" Filter="1" />
+    <FileEntry Name="mdrv0Fx.215.log" Filter="1" />
+    <FileEntry Name="mdrv0Gk.287.log" Filter="1" />
+    <FileEntry Name="mdrvhT2.589.log" Filter="1" />
+    <FileEntry Name="mdrvlkz.657.log" Filter="1" />
+    <FileEntry Name="mdrvmpJ.745.log" Filter="1" />
+    <FileEntry Name="mdrvQUd.557.log" Filter="1" />
+    <FileEntry Name="mdrvSLU.265.log" Filter="1" />
+    <FileEntry Name="mdrv_cmd.txt" Filter="1" />
+    <FileEntry Name="output.bak" Filter="1" />
+    <FileEntry Name="output.txt" Filter="1" />
+    <FileEntry Name="ReplaySummaryReport.xml" Filter="1" />
+    <FileEntry Name="Script.sln.cache" Filter="1" />
+    <FileEntry Name="Script.suo" Filter="1" />
+    <FileEntry Name="Script2012.sln" Filter="1" />
+    <FileEntry Name="ThumbnailsCache.tmp" Filter="1" />
+    <FileEntry Name="UserTasks.xml" Filter="1" />
+    <FileEntry Name="vuser_end.c" Filter="1" />
+    <FileEntry Name="vuser_init.c" Filter="1" />
+    <FileEntry Name=".vs\" Filter="1" />
+    <FileEntry Name="obj\" Filter="1" />
+  </GeneralFiles>
+</VugenScriptMetadata>

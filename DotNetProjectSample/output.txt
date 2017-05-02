@@ -1,0 +1,4 @@
+Virtual User Script started at : 01.05.2017 19:51:47
+Starting action vuser_init.
+vuser_init.cs(22): Error: lrvtc_connect: Failed to connect server. Please check the server name, port number, network connectivity or whether server above 11.52 version is started.
+Abort was called from an action.

@@ -1,0 +1,64 @@
+[General]
+Type=dotNet2
+DefaultCfg=default.cfg
+ParameterFile=
+GlobalParameterFile=
+RunType=CS-Interpreter
+NewFunctionHeader=1
+ActionLogicExt=action_logic
+ScriptLanguage=CS
+LastActiveAction=Action
+DevelopTool=Vugen
+MajorVersion=12
+MinorVersion=53
+LastModifyVer=12.53.0.1203
+ActiveTypes=dotNet2
+AdditionalTypes=dotNet2
+GenerateTypes=dotNet2
+ParamLeftBrace={
+ParamRightBrace=}
+LastCodeGenerationVer=
+DisableRegenerate=0
+Description=
+ScriptLocale=ru-RU
+[Interpreters]
+vuser_init=CS-Interpreter
+Action=CS-Interpreter
+vuser_end=CS-Interpreter
+[ExtraFiles]
+AssemblyInfo.cs=
+globals.cs=
+globalsFixed.cs=
+Script.csproj=
+Script.csproj.user=
+Script.props.user=
+Script.sln=
+[Actions]
+vuser_init=vuser_init.cs
+Action=Action.cs
+vuser_end=vuser_end.cs
+[VuserProfiles]
+Profiles=Default Profile
+[CfgFiles]
+Default Profile=default.cfg
+[RunLogicFiles]
+Default Profile=default.usp
+[Modified Actions]
+vuser_init=1
+Action=0
+vuser_end=0
+[Recorded Actions]
+vuser_init=0
+Action=0
+vuser_end=0
+[Replayed Actions]
+vuser_init=1
+Action=1
+vuser_end=1
+[TransactionsOrder]
+Order=
+[StateManagement]
+LastReplayStatus=3
+[ActiveReplay]
+LastReplayedRunName=
+ActiveRunName=
