@@ -45,7 +45,7 @@ Default Profile=default.cfg
 Default Profile=default.usp
 [Modified Actions]
 vuser_init=1
-Action=0
+Action=1
 vuser_end=0
 [Recorded Actions]
 vuser_init=0
@@ -58,7 +58,7 @@ vuser_end=1
 [TransactionsOrder]
 Order=
 [StateManagement]
-LastReplayStatus=3
+LastReplayStatus=1
 [ActiveReplay]
 LastReplayedRunName=
 ActiveRunName=

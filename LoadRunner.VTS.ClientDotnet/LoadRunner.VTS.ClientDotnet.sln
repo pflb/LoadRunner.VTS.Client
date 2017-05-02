@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadRunner.VTSClientDotnet", "LoadRunner.VTSClientDotnet.csproj", "{72296BF7-78AF-47C9-B235-3170BFE762AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "..\UnitTestProject1\UnitTestProject1.csproj", "{AD328403-F196-4B46-B6B7-E5E371F3180B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectVTSClient", "..\UnitTestProject1\UnitTestProjectVTSClient.csproj", "{AD328403-F196-4B46-B6B7-E5E371F3180B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

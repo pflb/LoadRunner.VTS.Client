@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace LoadRunner.VTSClientDotnet.JSON
 {
-    class HandshakeRequestData
+    class RotateRequestData
     {
-        public HandshakeRequestData()
-        {
-            version = "1.1";
-        }
-        public string version { get; set; }
+        public List<string> columns { get; set; }
+        public SendRow option { get; set; }
+
+
     }
 }

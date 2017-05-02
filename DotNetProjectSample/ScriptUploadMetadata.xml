@@ -27,25 +27,17 @@
     <FileEntry Name="CompilerLogMetadata.xml" Filter="1" />
     <FileEntry Name="DotNetProjectSample.sdf" Filter="1" />
     <FileEntry Name="mdrv.log" Filter="1" />
-    <FileEntry Name="mdrv0Fx.215.log" Filter="1" />
-    <FileEntry Name="mdrv0Gk.287.log" Filter="1" />
-    <FileEntry Name="mdrvhT2.589.log" Filter="1" />
-    <FileEntry Name="mdrvlkz.657.log" Filter="1" />
-    <FileEntry Name="mdrvmpJ.745.log" Filter="1" />
-    <FileEntry Name="mdrvQUd.557.log" Filter="1" />
-    <FileEntry Name="mdrvSLU.265.log" Filter="1" />
     <FileEntry Name="mdrv_cmd.txt" Filter="1" />
     <FileEntry Name="output.bak" Filter="1" />
     <FileEntry Name="output.txt" Filter="1" />
     <FileEntry Name="ReplaySummaryReport.xml" Filter="1" />
     <FileEntry Name="Script.sln.cache" Filter="1" />
-    <FileEntry Name="Script.suo" Filter="1" />
     <FileEntry Name="Script2012.sln" Filter="1" />
     <FileEntry Name="ThumbnailsCache.tmp" Filter="1" />
+    <FileEntry Name="TransactionsData.db" Filter="1" />
     <FileEntry Name="UserTasks.xml" Filter="1" />
     <FileEntry Name="vuser_end.c" Filter="1" />
     <FileEntry Name="vuser_init.c" Filter="1" />
-    <FileEntry Name=".vs\" Filter="1" />
     <FileEntry Name="obj\" Filter="1" />
   </GeneralFiles>
 </VugenScriptMetadata>

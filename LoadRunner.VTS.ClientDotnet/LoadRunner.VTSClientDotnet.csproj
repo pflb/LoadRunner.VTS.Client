@@ -35,6 +35,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +49,8 @@
     <Compile Include="JSON\HandshakeRequest.cs" />
     <Compile Include="JSON\HandshakeRequestData.cs" />
     <Compile Include="JSON\HandshakeResponse.cs" />
+    <Compile Include="JSON\RotateRequest.cs" />
+    <Compile Include="JSON\RotateRequestData.cs" />
     <Compile Include="JSON\Status.cs" />
     <Compile Include="SendRow.cs" />
     <Compile Include="Client.cs" />
