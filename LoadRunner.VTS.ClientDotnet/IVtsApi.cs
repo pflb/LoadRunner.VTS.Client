@@ -1,4 +1,6 @@
-﻿namespace LoadRunner.VTSClientDotnet
+﻿using System.Collections.Generic;
+
+namespace LoadRunner.VTSClientDotnet
 {
     interface IVtsApi
     {
@@ -17,8 +19,9 @@
         void retrieve_message(string columnName);
         void retrieve_messages(string columnNames, string delimiter);
         void retrieve_row();
-        void rotate_message(string columnName, SendRow sendflag);
-        void rotate_messages(string columnNames, string delimiter, SendRow sendflag);
+        string rotate_message(string columnName, SendRow sendflag);
+        Dictionary<string, string> rotate_messages(string columnNames, string delimiter, SendRow sendflag);
+        Dictionary<string, string> rotate_messages(IEnumerable<string> columnNames, SendRow sendflag);
         void rotate_row(SendRow sendflag);
         void send_if_unique(string columnName, string message);
         void send_message(string columnName, string message);

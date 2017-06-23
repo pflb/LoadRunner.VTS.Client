@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LoadRunner.VTSClientDotnet.JSON
 {
     class RotateRequestData
     {
-        public List<string> columns { get; set; }
+        public IEnumerable<string> columns { get; set; }
         public SendRow option { get; set; }
 
 

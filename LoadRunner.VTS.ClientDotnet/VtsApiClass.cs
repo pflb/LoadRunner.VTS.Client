@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LoadRunner.VTSClientDotnet
 {
     public class VtsApiClass : IVtsApi
     {
-
+        Client VtsClient { get; set; }
         public VtsApiClass()
         {
 
@@ -32,7 +33,9 @@ namespace LoadRunner.VTSClientDotnet
 
         public void connect(string servername, int portnum, ConnectionOptions options)
         {
-            throw new NotImplementedException();
+            Uri vtsUriApi = new Uri($"http://{servername}:{portnum}/api");
+            VtsClient = new Client(vtsUriApi);
+            VtsClient.handshake();
         }
 
         public void create_column(string columnName)
@@ -42,7 +45,7 @@ namespace LoadRunner.VTSClientDotnet
 
         public void disconnect()
         {
-            throw new NotImplementedException();
+            VtsClient.disconnect();
         }
 
         public void drop_index(string columnName)
@@ -85,16 +88,6 @@ namespace LoadRunner.VTSClientDotnet
             throw new NotImplementedException();
         }
 
-        public void rotate_message(string columnName, SendRow sendflag)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void rotate_messages(string columnNames, string delimiter, SendRow sendflag)
-        {
-            throw new NotImplementedException();
-        }
-
         public void rotate_row(SendRow sendflag)
         {
             throw new NotImplementedException();
@@ -128,6 +121,26 @@ namespace LoadRunner.VTSClientDotnet
         public void update_row(string columnNames, int index, string messages, string delimiter)
         {
             throw new NotImplementedException();
+        }
+
+        public string rotate_message(string columnName, SendRow sendflag)
+        {
+            List<string> columns = new List<string>();
+            columns.Add(columnName);
+            Dictionary<string, string> columnValue = VtsClient.rotate(columns, sendflag);
+            return columnValue[columnName];
+        }
+
+        public Dictionary<string, string> rotate_messages(string columnNames, string delimiter, SendRow sendflag)
+        {
+            string[] separator = { delimiter };
+            string[] columnArray = columnNames.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            return VtsClient.rotate(columnArray, sendflag);
+        }
+
+        public Dictionary<string, string> rotate_messages(IEnumerable<string> columnNames, SendRow sendflag)
+        {
+            return VtsClient.rotate(columnNames, sendflag);
         }
     }
 }
