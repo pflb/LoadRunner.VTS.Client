@@ -20,15 +20,11 @@ namespace UnitTestProject1
         [TestMethod]
         public void VTS_rotate_messages()
         {
-            string column1 = "timeStamp";
-            string column2 = "elapsed";
-            List<string> columns = new List<string>();
-            columns.Add(column1);
-            columns.Add(column2);
+            string[] columns = {"CNUM", "SurName", "Name", "MiddleName", "BirthDay", "City" };
 
-            Dictionary<string, string> data = VTS.rotate_messages(columns, SendRow.Stacked);
+            Dictionary<string, string> user = VTS.rotate_messages(columns, SendRow.Stacked);
 
-            Assert.AreNotEqual(data[column1], data[column2]);
+            Assert.AreNotEqual(user["SurName"], user["Name"]);
         }
     }
 }
