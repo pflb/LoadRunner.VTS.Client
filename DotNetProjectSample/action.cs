@@ -10,47 +10,41 @@ namespace Script
 {
     public partial class VuserClass
     {
-    	static readonly string columnCnum = "NPM5.Client.CNUM";
-        static readonly string columnSurename = "NPM5.Client.Surename";
-        static readonly string columnSurenameEN = "NPM5.Client.SurenameEN";
-        static readonly string columnMiddleName = "NPM5.Client.MiddleName";
-        static readonly string columnMiddleNameEN = "NPM5.Client.MiddleNameEN";
-        static readonly string columnCompanyCNUM = "NPM5.Client.CompanyCNUM";
-        static readonly string columnCompanyTitle = "NPM5.Client.CompanyTitle";
-        static readonly string columnName = "NPM5.Name.Ru";
-        static readonly string columnNameEN = "NPM5.Name.En";
+    	static readonly string columnCnum = "CNUM";
+        static readonly string columnSurname = "SurName";
+        static readonly string columnName = "Name";
+        static readonly string columnMiddleName = "MiddleName";
+        static readonly string columnBirthDay = "BirthDay";
+        static readonly string columnCity = "City";
         
         static readonly string delimiter = ",";
 
-        static readonly string columnsCnumAndFIO =
-            columnCnum + delimiter +
-            columnSurename + delimiter +
-            columnSurenameEN + delimiter +
-            columnMiddleName + delimiter +
-            columnMiddleNameEN + delimiter +
-        	columnCompanyCNUM + delimiter +
-        	columnCompanyTitle
-        	;
 
-        static readonly string columnsNames = columnName + delimiter + columnNameEN;
-        
         /// <summary>
-        /// Получение тестовых данных cnum, фамилии и отчества из Virtual Table Server
+        /// Get all columns from Virtual Table Server
         /// </summary>
         /// <returns></returns>
-        string[] GetCnumAndFIO()
+        string[] RotateAll()
         {
-            vts.rotate_messages(columnsCnumAndFIO, delimiter, LoadRunner.SendRow.Stacked);
+	        string columnsAll =
+	            columnCnum + delimiter +
+	            columnSurname + delimiter +
+	        	columnName + delimiter +
+	            columnMiddleName + delimiter +
+	            columnBirthDay + delimiter +
+	            columnCity
+	        	;
+        
+            vts.rotate_messages(columnsAll, delimiter, LoadRunner.SendRow.Stacked);
 
             string[] data =
             {
                 lr.eval_string(string.Format("{{{0}}}", columnCnum)),
-                lr.eval_string(string.Format("{{{0}}}", columnSurename)),
-                lr.eval_string(string.Format("{{{0}}}", columnSurenameEN)),
+                lr.eval_string(string.Format("{{{0}}}", columnSurname)),
+                lr.eval_string(string.Format("{{{0}}}", columnName)),
                 lr.eval_string(string.Format("{{{0}}}", columnMiddleName)),
-                lr.eval_string(string.Format("{{{0}}}", columnMiddleNameEN)),
-                lr.eval_string(string.Format("{{{0}}}", columnCompanyCNUM)),
-                lr.eval_string(string.Format("{{{0}}}", columnCompanyTitle)),
+                lr.eval_string(string.Format("{{{0}}}", columnBirthDay)),
+                lr.eval_string(string.Format("{{{0}}}", columnCity)),
             };
 
             return data;
@@ -58,17 +52,44 @@ namespace Script
         
         
         /// <summary>
-        /// Получение тестовых данных - имени из Virtual Table Server
+        /// Get Surname, Name and MiddleName from Virtual Table Server
         /// </summary>
         /// <returns></returns>
-        string[] GetNames()
+        string[] RotateFIO()
         {
-            vts.rotate_messages(columnsNames, delimiter, LoadRunner.SendRow.Stacked);
+        	string columnsFIO = columnSurname + delimiter +
+        	columnName + delimiter +
+        	columnMiddleName;
+        	
+            vts.rotate_messages(columnsFIO, delimiter, LoadRunner.SendRow.Stacked);
 
             string[] data =
             {
+                lr.eval_string(string.Format("{{{0}}}", columnSurname)),
                 lr.eval_string(string.Format("{{{0}}}", columnName)),
-                lr.eval_string(string.Format("{{{0}}}", columnNameEN)),
+                lr.eval_string(string.Format("{{{0}}}", columnMiddleName)),
+            };
+
+            return data;
+        }
+        
+                /// <summary>
+        /// Get CNUM, BirthDay and City from Virtual Table Server
+        /// </summary>
+        /// <returns></returns>
+        string[] RotateOtherInfo()
+        {
+        	string columnsOther = columnCnum + delimiter +
+        	columnBirthDay + delimiter +
+        	columnCity;
+        	
+            vts.rotate_messages(columnsOther, delimiter, LoadRunner.SendRow.Stacked);
+
+            string[] data =
+            {
+                lr.eval_string(string.Format("{{{0}}}", columnCnum)),
+                lr.eval_string(string.Format("{{{0}}}", columnBirthDay)),
+                lr.eval_string(string.Format("{{{0}}}", columnCity)),
             };
 
             return data;
@@ -77,12 +98,19 @@ namespace Script
         
         public int Action()
         {
-        	string[] names = GetNames();
+        	string[] names = RotateFIO();
         	
         	lr.message(names[0]);
         	lr.message(names[1]);
+        	lr.message(names[2]);
         	
-            return 0;
+        	string[] info = RotateOtherInfo();
+        	
+        	lr.message(info[0]);
+        	lr.message(info[1]);
+        	lr.message(info[2]);
+
+        	return 0;
         }
     }
 }

@@ -15,12 +15,7 @@ namespace Script
     {
         public int vuser_init()
         {
-            AppDomain.CurrentDomain.SetData(
-                "APP_CONFIG_FILE"
-                , Assembly.GetExecutingAssembly().Location + ".config"
-                );
             vts.connect("localhost", 10000, LoadRunner.ConnectionOptions.KeepAlive);
-
 
             return 0;
         }
