@@ -6,33 +6,27 @@ using System.Collections.Generic;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTestClient
+    public class UnitTestVtsApiClass
     {
-        Client client;
+        VtsApiClass VTS { get; set; }
 
         [TestInitialize]
         public void init()
         {
-            client = new Client(new Uri("http://localhost:10000/api"));
+            VTS = new VtsApiClass();
+            VTS.connect("localhost", 8888, ConnectionOptions.None);
         }
 
         [TestMethod]
-        public void ClientHandshake()
+        public void VTS_rotate_messages()
         {
-            string version = client.handshake();
-            Assert.AreEqual(version, "1.1");
-        }
-
-        [TestMethod]
-        public void ClientRotate()
-        {
-            string column1 = "NPM5.Name.Ru";
-            string column2 = "NPM5.Name.En";
+            string column1 = "timeStamp";
+            string column2 = "elapsed";
             List<string> columns = new List<string>();
             columns.Add(column1);
             columns.Add(column2);
 
-            Dictionary<string, string> data = client.rotate(columns);
+            Dictionary<string, string> data = VTS.rotate_messages(columns, SendRow.Stacked);
 
             Assert.AreNotEqual(data[column1], data[column2]);
         }

@@ -10,20 +10,28 @@ namespace LoadRunner.VTSClientDotnet
 {
     public class Client
     {
-        HttpWebRequest httpWebRequest;
         JavaScriptSerializer serializer;
+        Uri vtsApiUri;
 
         public Client(Uri vtsApiUri)
         {
-            httpWebRequest = HttpWebRequest.CreateHttp(vtsApiUri);
-            httpWebRequest.ContentType = "application/x-www-form-urlencoded";
-            httpWebRequest.KeepAlive = true;
-            httpWebRequest.Method = "POST";
+            this.vtsApiUri = vtsApiUri;
             serializer = new JavaScriptSerializer();
+        }
+
+        public void disconnect()
+        {
+            serializer = null;
         }
 
         public TResponseData getResponse<T1, TResponseData>(T1 request)
         {
+            HttpWebRequest httpWebRequest;
+            httpWebRequest = HttpWebRequest.CreateHttp(vtsApiUri);
+            httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+            httpWebRequest.KeepAlive = true;
+            httpWebRequest.Method = "POST";
+
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                 String json = serializer.Serialize(request);
@@ -69,7 +77,7 @@ namespace LoadRunner.VTSClientDotnet
             return data.version;
         }
 
-        public Dictionary<string, string> rotate(List<string> columns = null, SendRow option = SendRow.Stacked)
+        public Dictionary<string, string> rotate(IEnumerable<string> columns = null, SendRow option = SendRow.Stacked)
         {
             var request = new JSON.RotateRequest(columns, option);
             Dictionary<string, string> data = getResponse<JSON.RotateRequest, Dictionary<string, string>>(request);
